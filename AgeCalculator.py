@@ -42,16 +42,16 @@ def calculate_total_time(birth_date_str):
         return "Дата народження не може бути в майбутньому."
     
     total_duration = now - birth_date
-    
     total_seconds = (int)(total_duration.total_seconds())
     total_minutes = int(total_seconds // 60)
     total_hours = int(total_seconds // 3600)
     total_days = total_duration.days
-    total_years = total_days // 365
-    total_months = (total_days % 365) // 30
+    total_years = int(total_days / 365.25)
+    total_months = int(total_days / 30.44)
+
 
     return (f"Ви прожили: \n"
-            f"  • Загалом: {total_years} р.\n"
+            f"  • Загалом: {(int)(total_years)} р.\n"
             f"  • Або: {total_months} міс.\n"
             f"  • Або: {total_days} дн.\n"
             f"  • Або: {total_hours} год.\n"
